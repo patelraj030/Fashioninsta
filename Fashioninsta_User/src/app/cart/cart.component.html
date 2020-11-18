@@ -1,0 +1,106 @@
+<div class="container">
+    <h3>Review Your Order</h3>
+
+</div>
+
+
+
+<table border="1" class="table table-striped">
+    <tr>
+        <th>S.No.</th>
+        <th>Product Name</th>
+        <th>Photo</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub Total</th>
+        <th>Cancel</th>
+    </tr>
+    <tr *ngFor="let item of items;let rowIndex=index">
+
+        <td>{{rowIndex+1}}</td>
+        <td>{{item.product.name}}</td>
+        <td>
+            <img src="{{item.product.image}}" width="250" height="100">
+        </td>
+        <td>{{item.product.price}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.product.price * item.quantity}}</td>
+
+
+        <td align="center">
+            <input type="button" value="cancel Order" (click)="remove(item.product._id)" class="btn btn-danger" />
+            <!-- <a (click)="remove(item.product._id)">&#10060;</a> -->
+        </td>
+    </tr>
+    <tr>
+        <td colspan="6" align="right">Total</td>
+        <td>{{total}}</td>
+    </tr>
+
+    <tr>
+        <td colspan="8" align="center">
+
+            <input type="button" value="Place Order" (click)="checkOut()" class="btn btn-success" style="width: 50%;" />
+        </td>
+    </tr>
+    {{cartInfo}}
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card" *ngFor="let item of items">
+
+                            <img src="{{item.product.image}}" class="card-img-top" alt="No Images">
+                            <div class="card-block">
+                                <h5 class="card-title">
+                                    {{item.product.name}}
+                                </h5>
+
+                                <h4 class="card-title">
+                                    Price: ${{item.product.price}}
+                                </h4>
+
+                                <h4 class="card-title">
+                                    Quantity[{{item.quantity}}]
+                                </h4>
+
+                                <h4 class="card-title">
+                                    Sub Total: ${{item.product.price * item.quantity}}
+                                </h4>
+
+                                <p>
+                                    <input type="button" value="Place Order" (click)="checkOut()" class="btn btn-primary" /> {{cartInfo}}
+                                    <input type="button" value="cancel Order" (click)="remove(item.product._id)" class="btn btn-danger" /> {{cartInfo}}
+                                </p>
+
+                                <p>{{total}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

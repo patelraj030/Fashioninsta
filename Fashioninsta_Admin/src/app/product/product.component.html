@@ -1,0 +1,31 @@
+<div class="container">
+    <br>
+    <h4 class="display-4">Do you want to add new Product?</h4>
+    <a class="btn btn-success" routerLink="/product-add">Add New Product</a>
+    <br /><br />
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Product Code</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products;let rowIndex=index">
+                <td>{{rowIndex+1}}</td>
+                <td>{{product.code}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td><img style="width: 250px;height: 150px;" src="{{product.image}}" /></td>
+                <td>
+                    <a class="btn btn-success" [routerLink]="['/product-detail', product._id]">View Details</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
